@@ -4,8 +4,7 @@
     Create constants for frequently used paths.
 */   
 defined("VIEW_PATH")
-    or define("VIEW_PATH", realpath(dirname(__FILE__) . '/view'));
- 
+    or define("VIEW_PATH", realpath(dirname(__FILE__) . './resources/view/'));
 /*
     Error reporting.
 */

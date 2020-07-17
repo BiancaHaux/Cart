@@ -1,5 +1,12 @@
 {
     "require-dev": {
         "phpunit/phpunit": "^9"
-    }
+    },
+	"autoload": {
+		"classmap": [
+		"src/Shop/shoppingCart.php",
+		  "src/Shop//Cart/cart.php",
+		  "src/Shop/Product/products.php"
+		]
+	  }
 }
