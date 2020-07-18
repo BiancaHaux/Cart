@@ -4,9 +4,9 @@
     },
 	"autoload": {
 		"classmap": [
-		"src/Shop/shoppingCart.php",
-		  "src/Shop//Cart/cart.php",
-		  "src/Shop/Product/products.php"
+		"src/Shop/ShoppingCart.php",
+		  "src/Shop/Cart/Cart.php",
+		  "src/Shop/Product/Products.php"
 		]
 	  }
 }

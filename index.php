@@ -7,7 +7,7 @@ require_once("config.php");
 require "vendor/autoload.php";
 
 // add in the header view
-require_once(VIEW_PATH . "/header.php");
+require_once(VIEW_PATH . "/Header.php");
 
 ?>
 
@@ -22,10 +22,13 @@ require_once(VIEW_PATH . "/header.php");
 
 <?php
 	// add in the products view
-	require_once(VIEW_PATH . "/products_content.php");
+	require_once(VIEW_PATH . "/ProductsContent.php");
 ?>
 
 <?php
 	// add in the cart view
-	require_once(VIEW_PATH . "/cart_content.php");
+	require_once(VIEW_PATH . "/CartContent.php");
 ?>
+
+</body>
+</html>
