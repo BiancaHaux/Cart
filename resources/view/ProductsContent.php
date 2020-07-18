@@ -23,11 +23,14 @@ if (! empty($productList)) {
 				<h5 class="card-title"><?php echo $productList[$key]["name"]; ?></h5>
 				<p class="card-text">
 					<!-- Insert price of the product from list -->
-					<p>Price: <?php echo $productList[$key]["price"]; ?></p>
+					<p>Price: <?php echo "$".$productList[$key]["price"]; ?></p>
 				</p>
 				<!-- Button for adding product to cart -->
-				<Button type="button" class="remove-product-btn btn">
+				<Button type="button" class="btn" onclick="cartAction('add', '<?php echo $productList[$key]["name"] ?>')">
 					Add to Cart
+				</Button>
+				<Button type="button" id="reloadCart" class="btn btn-invisible" onclick="cartAction('reload', '')">
+					Reload Cart
 				</Button>
 			</div>
 		</div>
@@ -35,6 +38,42 @@ if (! empty($productList)) {
     }
 	//Unset loop value so it doesn't affect future loops
 	unset($value);
+
 }
+
 ?>
 </div>
+
+<script>
+
+//On click event function for add/remove products buttons
+//Variable: toDo=requested action, product name
+function cartAction(toDo, productName) {
+	
+	//Prepare empty string for ajax query
+    var query = "";
+	
+	//If requested action is not empty run ajax query
+    if (toDo != "") {
+		
+		//Combine request into query string
+		query = 'toDo=' + toDo + '&name=' + productName;
+		console.log(query);
+		//Run ajax request
+		jQuery.ajax({
+			url : "src/CartAction.php",
+			data : query,
+			type : "POST",
+			success : function(data) {
+				$("#cart").html(data);
+				if (toDo == "add") {
+					$("#add_" + productName + " img").attr("src");
+                $("#add_" + productName).attr("onclick", "");
+				}
+			},
+			error : function() {
+			}
+		});
+	}
+}
+</script>
